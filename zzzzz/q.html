@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>睿睿宝贝</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .body {
+            background-image: url(./赵瑞/微信图片_2025-11-03_105207_166.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            padding-bottom: 50px; /* 底部留白 */
+        }
+        /* 顶部导航栏 */
+        .header {
+            width: 100%;
+            height: 60px;
+            position: fixed;
+            background-color: rgb(229, 236, 236);
+            top: 0;
+            left: 0;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+        }
+        .bb {
+            font-size: 18px; /* 移动端缩小字体 */
+            color: black;
+            font-weight: 600;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .bb img {
+            height: 24px; /* 适配导航栏高度 */
+        }
+        /* 滚动公告 */
+        .notice {
+            width: 100%;
+            height: 30px;
+            margin-top: 60px;
+            padding: 0 15px;
+        }
+        .cc {
+            font-size: 14px; /* 缩小字体 */
+            color: rgb(216, 23, 23);
+            font-weight: 600; /* 修复原代码font-size:900错误 */
+            width: 100%;
+            height: 100%;
+        }
+        /* 个人信息卡片 */
+        .info-card {
+            width: calc(100% - 30px); /* 左右留边 */
+            background-color: white;
+            margin-top: 100px;
+            margin-left: 15px;
+            margin-right: 15px;
+            height: auto; /* 自适应高度 */
+            padding: 20px;
+            position: relative;
+            border-radius: 8px; /* 圆角优化 */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* 轻微阴影 */
+        }
+        .info-card .avatar {
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        .info-card .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 图片自适应 */
+            border-radius: 4px;
+        }
+        .info-card .text {
+            width: 100%;
+            margin-left: 110px; /* 避开头像 */
+            margin-top: 0;
+            font-size: 16px;
+            line-height: 1.8; /* 行高优化可读性 */
+        }
+        /* 图片展示卡片 */
+        .image-card {
+            width: calc(100% - 30px);
+            background-color: white;
+            margin-top: 20px;
+            margin-left: 15px;
+            margin-right: 15px;
+            height: auto;
+            padding: 20px;
+            position: relative;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .image-card .main-img {
+            width: 120px;
+            height: auto;
+            position: relative;
+            margin: 0 auto 20px; /* 居中显示 */
+        }
+        .image-card .main-img img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        .image-card .desc {
+            width: 100%;
+            margin-left: 0;
+            margin-top: 0;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: center; /* 文字居中 */
+            margin-bottom: 20px;
+        }
+        .image-card .sub-img {
+            width: 150px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .image-card .sub-img img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+        .image-card .sub-img p {
+            font-size: 14px;
+            color: #666;
+            margin-top: 8px;
+        }
+        /* 适配极小屏幕（320px以下） */
+        @media screen and (max-width: 320px) {
+            .bb {
+                font-size: 16px;
+            }
+            .info-card .text {
+                font-size: 14px;
+                margin-left: 90px;
+            }
+            .info-card .avatar {
+                width: 70px;
+                height: 70px;
+            }
+        }
+    </style>
+</head>
+<body class="body">
+    <!-- 顶部导航栏 -->
+    <div class="header">
+        <div class="bb">
+            欢迎来到赵睿的家！
+            <a href="" target="_blank">
+                <img src="./赵瑞/微信图片_20251108220923_38_1.jpg" alt="图标">
+            </a >
+        </div>
+    </div>
+
+    <!-- 滚动公告 -->
+    <div class="notice">
+        <div class="cc">
+            <marquee direction="left" scrollamount="6">赵睿成家发展史:赵睿家庭历史悠久，自殷商时期以来，赵睿世世代代皆为太监，赵睿从何而来是个巨大谜团</marquee>
+        </div>
+    </div>
+
+    <!-- 个人信息卡片 -->
+    <div class="info-card">
+        <div class="avatar">
+            <img src="./赵瑞/微信图片_2025-11-03_105157_614.jpg" alt="个人头像">
+        </div>
+        <div class="text">
+            姓名：畜生赵睿<br>
+            爱好：女<br>
+            职业：出生<br>
+            电话：188888888<br>
+            个人简介：自幼丧母，成年丧<br>鸡。每天都会孝敬506的父亲<br>们。
+        </div>
+    </div>
+
+    <!-- 图片展示卡片 -->
+    <div class="image-card">
+        <div class="main-img">
+            <img src="./赵瑞/微信图片_20251108220923_38_1.jpg" alt="主要图片">
+        </div>
+        <div class="desc">
+            这是赵睿当太监的第一天，第一天总是浑身乏力并伴随着疼痛，但是大富大贵就在眼前，这点痛苦对他来说是非常简单的
+        </div>
+        <div class="sub-img">
+            <img src="./赵瑞/微信图片_2025-11-03_105152_589.jpg" alt="次要图片">
+            <p>小畜生赵睿</p >
+        </div>
+    </div>
+</body>
+</html>
