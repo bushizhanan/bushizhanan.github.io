@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>手机版提示弹窗</title>
+    <style>
+        a{
+            text-decoration: none;
+            color: white;
+        }
+        .aaa{
+            width: 85vw; /* 相对于屏幕宽度的85% */
+            height: 120px;
+            background-color: yellow;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 20px;
+        }
+        .aaa1{
+            width: 100%;
+            height: 45px;
+            background-color: rgb(188, 182, 182);
+            position: absolute;
+            border-top-right-radius: 20px;
+            border-top-left-radius: 20px;
+            border-bottom: 2px solid rgb(30, 28, 28);
+        }
+        .aaa11{
+            position: absolute;
+            width: 60px;
+            height: 25px;
+            display: flex;
+            font-weight: 600;
+            align-items: center;
+            margin-top: 10px;
+            margin-left: 20px;
+            font-size: 16px;
+        }
+        .aaa2{
+            width: 100%;
+            height: 75px;
+            background-color: white;
+            position: absolute;
+            border-bottom-right-radius: 20px;
+            border-bottom-left-radius: 20px;
+            margin-top: 45px;
+        }
+        .aaa21{
+            position: absolute;
+            width: 100%;
+            height: 25px;
+            margin-top: 10px;
+            margin-left: 15px;
+            color: black;
+            font-size: 14px;
+        }
+        .aaa22{
+            position: absolute;
+            width: 45px;
+            height: 30px;
+            margin-top: 35px;
+            margin-left: calc(85vw - 65px); /* 自适应右侧定位 */
+            background-color: rgb(28, 28, 243);
+            text-align: center;
+            align-items: center;
+            border-radius: 10px;
+            color: white;
+            font-size: 14px;
+            line-height: 30px; /* 垂直居中 */
+        }
+        body{
+            background-color: rgb(83, 81, 81);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* 禁止横向滚动 */
+        }
+        .aa1{
+            width: 100%;
+            height: 45px;
+            position: absolute;
+            border-top-right-radius: 20px;
+            border-top-left-radius: 20px;
+            border-bottom: 2px solid rgb(30, 28, 28);
+
+        }
+        .aa11{
+            position: absolute;
+            width: 60px;
+            height: 25px;
+            display: flex;
+            font-weight: 600;
+            align-items: center;
+            margin-top: 10px;
+            margin-left: 20px;
+            font-size: 16px;
+        }
+        .aa2{
+            width: 100%;
+            height: 55px;
+            background-color: white;
+            position: absolute;
+            border-bottom-right-radius: 20px;
+            border-bottom-left-radius: 20px;
+            margin-top: 45px;
+        }
+        .aa21{
+            position: absolute;
+            width: 80%;
+            height: 25px;
+            margin-top: 15px;
+            margin-left: 50%;
+            transform: translateX(-50%); /* 水平居中 */
+            color: black;
+            font-weight: 600;
+            font-size: 16px;
+            text-align: center;
+        }
+        .aa22{
+            position: absolute;
+            width: 45px;
+            height: 30px;
+            margin-top: 35px;
+            margin-left: calc(100% - 65px);
+            background-color: rgb(28, 28, 243);
+            text-align: center;
+            align-items: center;
+            border-radius: 10px;
+            color: white;
+            font-size: 14px;
+            line-height: 30px;
+        }
+        /* 手机端弹窗适配：宽度自适应，位置重排 */
+        .tooltip {
+            display: none;
+            width: 70vw; /* 占屏幕70%宽度 */
+            height: 90px;
+            position: absolute;
+            border-radius: 15px;
+            z-index: 10; /* 确保弹窗层级在上 */
+        }
+        .po{ background-color: rgb(64, 95, 167); top: 20%; left: 15%; }
+        .po1{ background-color: rgb(207, 207, 134); top: 35%; left: 10%; }
+        .po2{ background-color: rgb(160, 110, 114); top: 50%; left: 5%; }
+        .po3{ background-color: rgb(122, 122, 214); top: 65%; left: 10%; }
+        .po4{ background-color: rgb(219, 123, 195); top: 80%; left: 15%; }
+        .po5{ background-color: rgb(142, 95, 81); top: 15%; left: 55%; }
+        .po6{ background-color: rgb(126, 231, 105); top: 30%; left: 60%; }
+        .po7{ background-color: rgb(112, 212, 225); top: 45%; left: 55%; }
+        .po8{ background-color: rgb(129, 206, 170); top: 60%; left: 60%; }
+        .po9{ background-color: rgb(197, 130, 88); top: 75%; left: 55%; }
+        .po10{ background-color: rgb(123, 197, 88); top: 90%; left: 20%; }
+        .po11{ background-color: rgb(91, 202, 171); top: 5%; left: 30%; }
+        .po12{ background-color: rgb(41, 29, 105); top: 25%; left: 35%; }
+        .po13{ background-color: rgb(116, 45, 66); top: 40%; left: 40%; }
+        .po14{ background-color: rgb(179, 64, 64); top: 55%; left: 35%; }
+    </style>
+</head>
+<body>
+
+    <!-- 子弹窗：统一添加tooltip类，优化样式复用 -->
+    <div class="po tooltip" id="popup1">
+        <div class="aa1"><div class="aa11">提示</div></div>
+        <div class="aa2"><div class="aa21">好好吃饭</div></div>
+    </div>
+    <div class="po1 tooltip" id="popup2">
+        <div class="aa1"><div class="aa11">提示</div></div>
+        <div class="aa2"><div class="aa21">好好睡觉</div></div>
+    </div>
+    <div class="po2 tooltip" id="popup3">
+        <div class="aa1"><div class="aa11">提示</div></div>
+        <div class="aa2"><div class="aa21">好好作息</div></div>
+    </div>
+    <div class="po3 tooltip" id="popup4">
+        <div class="aa1"><div class="aa11">提示</div></div>
+        <div class="aa2"><div class="aa21">好好休息</div></div>
+    </div>
+    <div class="po4 tooltip" id="popup5">
+        <div class="aa1"><div class="aa11">提示</div></div>
+        <div class="aa2"><div class="aa21">劳逸结合</div></div>
+    </div>
+    <div class="po5 tooltip" id="popup6">
+        <div class="aa1"><div class="aa11">提示</div></div>
+        <div class="aa2"><div class="aa21">保持开心</div></div>
+    </div>
+    <div class="po6 tooltip" id="popup7">
+        <div class="aa1"><div class="aa11">提示</div></div>
+        <div class="aa2"><div class="aa21">好好吃饭</div></div>
+    </div>
+    <div class="po7 tooltip" id="popup8">
+        <div class="aa1"><div class="aa11">提示</div></div>
+        <div class="aa2"><div class="aa21">好好吃饭</div></div>
+    </div>
+    <div class="po8 tooltip" id="popup9">
+        <div class="aa1"><div class="aa11">提示</div></div>
+        <div class="aa2"><div class="aa21">好好吃饭</div></div>
+    </div>
+    <div class="po9 tooltip" id="popup10">
+        <div class="aa1"><div class="aa11">提示</div></div>
+        <div class="aa2"><div class="aa21">好好吃饭</div></div>
+    </div>
+    <div class="po10 tooltip" id="popup11">
+        <div class="aa1"><div class="aa11">提示</div></div>
+        <div class="aa2"><div class="aa21">适量饮食</div></div>
+    </div>
+    <div class="po11 tooltip" id="popup12">
+        <div class="aa1"><div class="aa11">提示</div></div>
+        <div class="aa2"><div class="aa21">保持耐心</div></div>
+    </div>
+    <div class="po12 tooltip" id="popup13">
+        <div class="aa1"><div class="aa11">提示</div></div>
+        <div class="aa2"><div class="aa21">放平心态</div></div>
+    </div>
+    <div class="po13 tooltip" id="popup14">
+        <div class="aa1"><div class="aa11">提示</div></div>
+        <div class="aa2"><div class="aa21">尊重他人</div></div>
+    </div>
+    <div class="po14 tooltip" id="popup15">
+        <div class="aa1"><div class="aa11">提示</div></div>
+        <div class="aa2"><div class="aa21">你很优秀</div></div>
+    </div>
+
+<script>
+    // 修复ID重复问题，选择tooltip类
+    const popups = document.querySelectorAll('.tooltip');
+    const delayPerItem = 300; // 缩短延迟，适配手机阅读节奏
+    const maxVisible = 6; // 控制同时显示的弹窗数量，避免拥挤
+
+    // 显示弹窗并添加触摸关闭事件
+    popups.forEach((popup, index) => {
+        setTimeout(() => {
+            popup.style.display = 'block';
+            // 触摸弹窗关闭
+            popup.addEventListener('touchstart', () => {
+                popup.style.display = 'none';
+            });
+        }, index * delayPerItem);
+
+        // 自动关闭（可选）
+        setTimeout(() => {
+            if (popup.style.display === 'block') {
+               
+            }
+        }, index * delayPerItem + 3000); // 3秒后自动关闭
+    });
+
+    // 主弹窗确定按钮事件
+    document.querySelector('.aaa22 a').addEventListener('touchstart', () => {
+        document.querySelector('.aaa').style.display = 'none';
+    });
+</script>
+</body>
+</html>
